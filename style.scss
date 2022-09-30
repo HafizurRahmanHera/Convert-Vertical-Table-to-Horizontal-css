@@ -1,0 +1,106 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Utility components */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 2rem;
+}
+
+
+/* Main style */
+.table {
+  font-size: 1.4rem;
+  color: #333;
+  width: 100%;
+  border-collapse: collapse;
+  
+  td, th{
+    text-align: left;
+    border: 1px solid #eee;
+    padding: 0.75rem;
+    vertical-align: top;
+    word-break: break-word;
+  }
+
+  // thead {
+  //   tr {
+  //     th:before {
+  //       content: "\25E6";
+  //       margin-right: 1rem;
+  //       position: relative;
+  //     }
+  //   }
+  // }
+}
+
+@media only screen and (max-width:800px) {
+  .mobile-table {
+    thead {
+      tr {
+        position: absolute;
+        top:-100rem;
+        left:-100rem;
+      }
+    }
+
+    tr, th, td {
+      display:block;
+    }
+    tr {
+      background: #fff;
+      margin: 1rem 0;
+      border-radius: .5rem;
+      box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+    }
+
+    td {
+      position: relative;
+      padding-left: 50%;
+
+      &:before {
+        /* Now like a table header */
+        // content: attr(data-title);
+        content: '\25E6' '\00a0\00a0' attr(data-title) '\00a0' ":";
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 0;
+        left: 0;
+        padding: 0.75rem;
+        // font-weight: bold;
+        max-width: 50%;
+        // height: 100%;
+      }
+    }
+
+    // extra
+    th, td {
+      border: none;
+    }
+
+    tbody tr  {
+      & th {
+        &:before {
+          content: "\2022";
+          margin-right: 1rem;
+          // position: relative;
+        }
+        &:after {
+          content: ":";
+          margin-left: .3rem;
+          // position: relative;
+        }
+      }
+    }
+  }
+
+}

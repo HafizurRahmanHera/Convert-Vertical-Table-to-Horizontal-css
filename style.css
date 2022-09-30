@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Utility components */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 2rem;
+}
+
+/* Main style */
+.table {
+  font-size: 1.4rem;
+  color: #333;
+  width: 100%;
+  border-collapse: collapse;
+}
+.table td, .table th {
+  text-align: left;
+  border: 1px solid #eee;
+  padding: 0.75rem;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+@media only screen and (max-width: 800px) {
+  .mobile-table thead tr {
+    position: absolute;
+    top: -100rem;
+    left: -100rem;
+  }
+  .mobile-table tr, .mobile-table th, .mobile-table td {
+    display: block;
+  }
+  .mobile-table tr {
+    background: #fff;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+  }
+  .mobile-table td {
+    position: relative;
+    padding-left: 50%;
+  }
+  .mobile-table td:before {
+    /* Now like a table header */
+    content: "◦" "  " attr(data-title) " " ":";
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0;
+    left: 0;
+    padding: 0.75rem;
+    max-width: 50%;
+  }
+  .mobile-table th, .mobile-table td {
+    border: none;
+  }
+  .mobile-table tbody tr th:before {
+    content: "•";
+    margin-right: 1rem;
+  }
+  .mobile-table tbody tr th:after {
+    content: ":";
+    margin-left: 0.3rem;
+  }
+}/*# sourceMappingURL=style.css.map */
